@@ -6,6 +6,8 @@ import com.example.dynamicform.lottery.api.dto.CreateLotteryRequest;
 import com.example.dynamicform.lottery.api.dto.LotteryResponse;
 import com.example.dynamicform.lottery.api.dto.PublicLotteryResultResponse;
 import com.example.dynamicform.lottery.application.LotteryService;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -20,6 +22,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@Tag(
+        name = "Lotteries",
+        description = "Lottery creation, execution and winner results"
+)
 @RestController
 @RequestMapping("/api")
 public class LotteryController {

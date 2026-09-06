@@ -6,6 +6,8 @@ import com.example.dynamicform.submission.api.dto.SubmitFormRequest;
 import com.example.dynamicform.submission.api.dto.SubmissionResponse;
 import com.example.dynamicform.submission.application.SubmissionQueryService;
 import com.example.dynamicform.submission.application.SubmissionService;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -19,6 +21,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+@Tag(
+        name = "Submissions",
+        description = "Dynamic form submission operations"
+)
 @RestController
 @RequestMapping("/api/forms/{formId}/submissions")
 public class SubmissionController {

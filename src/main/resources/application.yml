@@ -31,3 +31,35 @@ app:
     email: ${BOOTSTRAP_ADMIN_EMAIL:admin@local.dev}
     display-name: ${BOOTSTRAP_ADMIN_DISPLAY_NAME:Local Admin}
     password: ${BOOTSTRAP_ADMIN_PASSWORD:ChangeMe123!}
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+    operations-sorter: method
+    tags-sorter: alpha
+    display-request-duration: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
+
+      probes:
+        enabled: true
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: dynamic-form-lottery
+    description: Dynamic Form and Lottery backend
+    version: ${APP_VERSION:dev}

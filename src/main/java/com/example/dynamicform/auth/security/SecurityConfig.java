@@ -46,11 +46,23 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.PUT, "/api/forms/**").hasRole("ADMIN")
 
                         .requestMatchers("/api/auth/me").authenticated()
-                        .anyRequest().authenticated()
-                )
+                        .requestMatchers(
+                                "/v3/api-docs/**",
+                                "/swagger-ui/**",
+                                "/swagger-ui.html")
+                        .permitAll()
+
+                        .requestMatchers(
+                                "/actuator/health",
+                                "/actuator/health/**")
+                        .permitAll()
+
+                        .requestMatchers(
+                                "/actuator/info")
+                        .hasRole("ADMIN")
+                        .anyRequest().authenticated())
                 .oauth2ResourceServer(oauth2 -> oauth2
-                        .jwt(jwt -> jwt.jwtAuthenticationConverter(jwtAuthenticationConverter()))
-                );
+                        .jwt(jwt -> jwt.jwtAuthenticationConverter(jwtAuthenticationConverter())));
 
         return http.build();
     }

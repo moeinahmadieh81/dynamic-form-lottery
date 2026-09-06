@@ -9,6 +9,8 @@ import com.example.dynamicform.form.api.dto.UpdateDraftFormRequest;
 import com.example.dynamicform.form.application.FormQueryService;
 import com.example.dynamicform.form.application.FormService;
 import com.example.dynamicform.form.domain.FormStatus;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -23,6 +25,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+@Tag(
+        name = "Forms",
+        description = "Dynamic form creation, versioning and lifecycle management"
+)
 @RestController
 @RequestMapping("/api/forms")
 public class FormController {

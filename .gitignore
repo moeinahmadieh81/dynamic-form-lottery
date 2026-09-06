@@ -1,0 +1,23 @@
+# Maven
+/target/
+
+# IntelliJ IDEA
+/.idea/
+*.iml
+
+# VS Code
+/.vscode/
+
+# macOS
+.DS_Store
+
+# Local environment / secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# Local override configuration
+src/main/resources/application-local.yml

@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: dynamic-form-lottery
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/dynamic_form_lottery}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+  flyway:
+    enabled: true
+
+server:
+  port: ${SERVER_PORT:8080}
+
+app:
+  security:
+    jwt:
+      # Development default only. Always override JWT_SECRET outside local development.
+      secret: ${JWT_SECRET:local-development-jwt-secret-change-me-1234567890}
+      issuer: ${JWT_ISSUER:dynamic-form-lottery}
+      access-token-ttl-seconds: ${JWT_ACCESS_TOKEN_TTL_SECONDS:3600}
+  bootstrap-admin:
+    # Convenience for local development. Disable in real environments.
+    enabled: ${BOOTSTRAP_ADMIN_ENABLED:true}
+    email: ${BOOTSTRAP_ADMIN_EMAIL:admin@local.dev}
+    display-name: ${BOOTSTRAP_ADMIN_DISPLAY_NAME:Local Admin}
+    password: ${BOOTSTRAP_ADMIN_PASSWORD:ChangeMe123!}

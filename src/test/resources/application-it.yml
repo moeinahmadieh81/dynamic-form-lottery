@@ -1,0 +1,22 @@
+spring:
+  jpa:
+    properties:
+      hibernate:
+        format_sql: false
+
+app:
+  security:
+    jwt:
+      secret: integration-test-jwt-secret-that-is-longer-than-thirty-two-bytes
+      issuer: dynamic-form-lottery-integration-test
+      access-token-ttl-seconds: 3600
+  bootstrap-admin:
+    enabled: true
+    email: admin@integration.test
+    display-name: Integration Admin
+    password: IntegrationAdmin123!
+
+logging:
+  level:
+    org.hibernate.SQL: WARN
+    org.testcontainers: INFO

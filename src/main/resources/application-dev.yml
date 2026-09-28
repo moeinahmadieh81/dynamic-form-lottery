@@ -1,0 +1,26 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/dynamic_form_lottery}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+
+app:
+  security:
+    jwt:
+      secret: ${JWT_SECRET:local-development-jwt-secret-change-me-1234567890}
+      issuer: ${JWT_ISSUER:dynamic-form-lottery-dev}
+
+  bootstrap-admin:
+    enabled: ${BOOTSTRAP_ADMIN_ENABLED:true}
+    email: ${BOOTSTRAP_ADMIN_EMAIL:admin@local.dev}
+    display-name: ${BOOTSTRAP_ADMIN_DISPLAY_NAME:Local Admin}
+    password: ${BOOTSTRAP_ADMIN_PASSWORD:ChangeMe123!}
